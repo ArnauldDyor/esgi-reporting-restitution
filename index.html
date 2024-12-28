@@ -34,8 +34,9 @@
             </ul>
         </section>
         <section id="module3">
-            <h2>module 3 : Visualisation et reporting interactif</h2>
-            <p>Apprenez les bases des modèles supervisés et non supervisés.</p>
+            <h2>module 3 : Analyse de données avancée pour le reporting</h2>
+            <p>Introduire les concepts d'analyse de données avancée adaptés au reporting, 
+			Comprendre et implémenter des algorithmes tels que K-Means, PCA, ou régressions pour extraire des insights pertinents.</p>
             <ol>
                 <li>Régression linéaire pour le reporting</li>
 				<p>La régression linéaire est un modèle statistique qui prédit une variable continue en fonction 
@@ -49,6 +50,26 @@
 				<p>Applications pratiques :segmentation des clients (marketing), 
 				groupement de produits similaires pour optimiser l’inventaire, 
 				identification des zones géographiques pour la livraison.</p>
+				<p><code>from sklearn.cluster import KMeans
+				import pandas as pd
+				import matplotlib.pyplot as plt
+
+				# Exemple de données
+				data = {'Revenu': [15, 20, 28, 30, 35, 40, 50],
+						'Dépenses': [200, 210, 250, 260, 300, 320, 400]}
+				df = pd.DataFrame(data)
+
+				# Application de K-Means
+				kmeans = KMeans(n_clusters=2, random_state=42)
+				df['Cluster'] = kmeans.fit_predict(df[['Revenu', 'Dépenses']])
+
+				# Visualisation
+				plt.scatter(df['Revenu'], df['Dépenses'], c=df['Cluster'], cmap='viridis')
+				plt.xlabel('Revenu')
+				plt.ylabel('Dépenses')
+				plt.title('Segmentation des clients')
+				plt.show()
+				</code></p>
                 <li>Réduction de dimensions avec ACP(analyse en composant principal) ou PCA (Principal Component Analysis)</li>
 				<p>PCA est une méthode de réduction de dimensions qui transforme des données complexes en un espace plus simple tout en préservant leur variance. 
 				Elle est utile pour visualiser des données ou réduire le bruit.
