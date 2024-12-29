@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Cours en Ligne</title>
+    <title>Introduction à l'analyse des données</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -43,6 +43,25 @@
 				d’une ou plusieurs variables indépendantes.</p>
 				<p>Applications pratiques : Prévision des ventes, analyse des performances marketing, 
 				identification de relations entre des variables.</p>
+				<pre>
+					<code class="language-python">
+		from sklearn.linear_model import LinearRegression
+
+		# Exemple de données simulées
+		data = {'Budget_Marketing': [10, 15, 20, 25, 30],
+				'Ventes': [100, 150, 200, 250, 300]}
+		df = pd.DataFrame(data)
+
+		# Modèle de régression linéaire
+		model = LinearRegression()
+		model.fit(df[['Budget_Marketing']], df['Ventes'])
+
+		# Prédictions
+		predictions = model.predict([[35]])
+		print("Prévision pour un budget marketing de 35 :", predictions[0])
+
+					</code>
+				</pre>
                 <li>Clustering avec K-Means</li>
 				<p>Le clustering est une technique qui regroupe des données similaires dans des "clusters". 
 				L’algorithme K-Means divise les données en K groupes en minimisant la distance entre les points 
@@ -75,9 +94,31 @@
 				</pre>
                 <li>Réduction de dimensions avec ACP(analyse en composant principal) ou PCA (Principal Component Analysis)</li>
 				<p>PCA est une méthode de réduction de dimensions qui transforme des données complexes en un espace plus simple tout en préservant leur variance. 
-				Elle est utile pour visualiser des données ou réduire le bruit.
-				Applications pratiques : visualisation des données à haute dimension, 
-				simplification des modèles prédictifs, détection d’anomalies.</p>
+				Elle est utile pour visualiser des données ou réduire le bruit.</p>
+				<p>Applications pratiques :
+				<ul>
+					<li>visualisation des données à haute dimension,</li> 
+					<li>simplification des modèles prédictifs,</li> 
+					<li>détection d’anomalies.</li></ul></p>
+				<pre>
+					<code class="language-python">
+		from sklearn.decomposition import PCA
+
+		# Exemple de données simulées
+		data = {'Feature_1': [2, 4, 6, 8, 10],
+				'Feature_2': [1, 3, 5, 7, 9],
+				'Feature_3': [10, 20, 30, 40, 50]}
+		df = pd.DataFrame(data)
+
+		# Application de PCA pour réduire à 2 dimensions
+		pca = PCA(n_components=2)
+		reduced_data = pca.fit_transform(df)
+
+		print("Données réduites :")
+		print(reduced_data)
+
+					</code>
+				</pre>
             </ol>
         </section>
         <section id="ressources">
@@ -90,7 +131,7 @@
         </section>
     </main>
     <footer>
-        <p>© 2024 Mon Cours. Tous droits réservés.</p>
+        <p>© 2024. Tous droits réservés.</p>
     </footer>
 </body>
 </html>
