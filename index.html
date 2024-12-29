@@ -46,6 +46,9 @@
 				<pre>
 					<code class="language-python">
 		from sklearn.linear_model import LinearRegression
+		import pandas as pd
+		import seaborn as sns
+		import matplotlib.pyplot as plt
 
 		# Exemple de données simulées
 		data = {'Budget_Marketing': [10, 15, 20, 25, 30],
@@ -56,12 +59,17 @@
 		model = LinearRegression()
 		model.fit(df[['Budget_Marketing']], df['Ventes'])
 
+		# Relation entre budget et ventes
+		sns.regplot(x="Budget_Marketing", y="Ventes", data=df)
+		plt.title("Relation entre Budget Marketing et Ventes")
+		plt.show()
+		
 		# Prédictions
 		predictions = model.predict([[35]])
 		print("Prévision pour un budget marketing de 35 :", predictions[0])
-
 					</code>
 				</pre>
+				<img src="images/regression.png" alt="Illustration regression" width="500">
                 <li>Clustering avec K-Means</li>
 				<p>Le clustering est une technique qui regroupe des données similaires dans des "clusters". 
 				L’algorithme K-Means divise les données en K groupes en minimisant la distance entre les points 
