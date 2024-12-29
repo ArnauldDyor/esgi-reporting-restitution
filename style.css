@@ -45,9 +45,16 @@ footer {
 }
 
 
-pre code {
-  background-color: #eee;
-  border: 1px solid #999;
-  display: block;
-  padding: 20px;
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    overflow-x: auto; /* Ajoute un défilement horizontal si le code est trop long */
+}
+
+code {
+    font-family: "Courier New", Courier, monospace;
+    color: #d63384;
+    font-size: 14px;
 }

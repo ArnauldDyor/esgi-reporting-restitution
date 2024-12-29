@@ -15,7 +15,7 @@
         <ul>
             <li><a href="#module1">Module 1 : Introduction à l'analyse des données et au reporting</a></li>
             <li><a href="#module2">Module 2 : Techniques d'extraction d'informations</a></li>
-            <li><a href="#module3">Module 3 : Visualisation et reporting interactif</a></li>
+            <li><a href="#module3">Module 3 : Analyse de données avancée pour le reporting</a></li>
 			<li><a href="#module4">Module 4 : </a></li
             <li><a href="#ressources">Ressources</a></li>
         </ul>
@@ -23,18 +23,18 @@
     <main>
         <section id="module1">
             <h2>Module 1 : Introduction à l'analyse des données et au reporting</h2>
-            <p>Ce cours vous guidera à travers les concepts clés pour devenir un Data Engineer / Data Scientist.</p>
+            <p></p>
         </section>
         <section id="module2">
-            <h2>module 2 : Techniques d'extraction d'informations</h2>
-            <p>Introduction aux pipelines de données, au cloud (AWS, GCP) et à Snowflake.</p>
+            <h2>Module 2 : Techniques d'extraction d'informations</h2>
+            <p></p>
             <ul>
                 <li>Créer des pipelines ETL</li>
                 <li>Intégrer des données sur des plateformes cloud</li>
             </ul>
         </section>
         <section id="module3">
-            <h2>module 3 : Analyse de données avancée pour le reporting</h2>
+            <h2>Module 3 : Analyse de données avancée pour le reporting</h2>
             <p>Introduire les concepts d'analyse de données avancée adaptés au reporting, 
 			Comprendre et implémenter des algorithmes tels que K-Means, PCA, ou régressions pour extraire des insights pertinents.</p>
             <ol>
@@ -51,26 +51,26 @@
 				groupement de produits similaires pour optimiser l’inventaire, 
 				identification des zones géographiques pour la livraison.</p>
 				<pre>
-					<code>
-						from sklearn.cluster import KMeans
-						import pandas as pd
-						import matplotlib.pyplot as plt
+					<code class="language-python">
+				from sklearn.cluster import KMeans
+				import pandas as pd
+				import matplotlib.pyplot as plt
 
-						# Exemple de données
-						data = {'Revenu': [15, 20, 28, 30, 35, 40, 50],
-								'Dépenses': [200, 210, 250, 260, 300, 320, 400]}
-						df = pd.DataFrame(data)
+				# Exemple de données
+				data = {'Revenu': [15, 20, 28, 30, 35, 40, 50],
+						'Dépenses': [200, 210, 250, 260, 300, 320, 400]}
+				df = pd.DataFrame(data)
 
-						# Application de K-Means
-						kmeans = KMeans(n_clusters=2, random_state=42)
-						df['Cluster'] = kmeans.fit_predict(df[['Revenu', 'Dépenses']])
+				# Application de K-Means
+				kmeans = KMeans(n_clusters=2, random_state=42)
+				df['Cluster'] = kmeans.fit_predict(df[['Revenu', 'Dépenses']])
 
-						# Visualisation
-						plt.scatter(df['Revenu'], df['Dépenses'], c=df['Cluster'], cmap='viridis')
-						plt.xlabel('Revenu')
-						plt.ylabel('Dépenses')
-						plt.title('Segmentation des clients')
-						plt.show()
+				# Visualisation
+				plt.scatter(df['Revenu'], df['Dépenses'], c=df['Cluster'], cmap='viridis')
+				plt.xlabel('Revenu')
+				plt.ylabel('Dépenses')
+				plt.title('Segmentation des clients')
+				plt.show()
 					</code>
 				</pre>
                 <li>Réduction de dimensions avec ACP(analyse en composant principal) ou PCA (Principal Component Analysis)</li>
