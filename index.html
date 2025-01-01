@@ -45,7 +45,7 @@
 				<ul>
 					<li>Prévision des ventes,</li> 
 					<li>analyse des performances marketing,</li> 
-					<li>identification de relations entre des variables.</li></ul></p>
+					<li>identification de relations entre des variables.</li></ul></p> 
 				<pre>
 					<code class="language-python">
 		from sklearn.linear_model import LinearRegression
@@ -68,7 +68,9 @@
 		plt.show()
 		
 		# Prédictions
-		predictions = model.predict([[35]])
+		new_budget = pd.DataFrame({'Budget_Marketing': [35]})
+		predictions = model.predict(new_budget)
+
 		print("Prévision pour un budget marketing de 35 :", predictions[0])
 					</code>
 				</pre>
@@ -84,9 +86,10 @@
 					<li>identification des zones géographiques pour la livraison.</li></ul></p>
 				<pre>
 					<code class="language-python">
-		from sklearn.cluster import KMeans
 		import pandas as pd
 		import matplotlib.pyplot as plt
+		from sklearn.cluster import KMeans
+		
 
 		# Exemple de données
 		data = {'Revenu': [15, 20, 28, 30, 35, 40, 50],
@@ -105,6 +108,8 @@
 		plt.show()
 					</code>
 				</pre>
+				<img src="images/kmeans.PNG" alt="Illustration clustering" width="500">
+				<img src="images/kmeans2.PNG" alt="Illustration clustering à 3" width="500">
                 <li>Réduction de dimensions avec ACP(analyse en composant principal) ou PCA (Principal Component Analysis)</li>
 				<p>PCA est une méthode de réduction de dimensions qui transforme des données complexes en un espace plus simple tout en préservant leur variance. 
 				Elle est utile pour visualiser des données ou réduire le bruit.</p>
@@ -115,7 +120,10 @@
 					<li>détection d’anomalies.</li></ul></p>
 				<pre>
 					<code class="language-python">
+		import pandas as pd
+		import matplotlib.pyplot as plt
 		from sklearn.decomposition import PCA
+		
 
 		# Exemple de données simulées
 		data = {'Feature_1': [2, 4, 6, 8, 10],
@@ -132,6 +140,7 @@
 
 					</code>
 				</pre>
+				<img src="images/pca.PNG" alt="Illustration reduction dimensions acp" width="500">
             </ol>
         </section>
         <section id="ressources">
