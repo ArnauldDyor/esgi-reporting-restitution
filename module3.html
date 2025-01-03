@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3 : Analyse de données avancée pour le reporting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barre latérale -->
+        <aside class="sidebar">
+            <h2>Menu</h2>
+            <nav>
+                <ul>
+                    <li><a href="#module1">Module 1 : Introduction à l'analyse des données et au reporting</a></li>
+					<li><a href="#module2">Module 2 : Techniques d'extraction d'informations</a></li>
+					<li><a href="#module3" class="active">Module 3 : Analyse de données avancée pour le reporting</a></li>
+					<li><a href="#module4">Module 4 : </a></li>
+					<li><a href="#ressources">Ressources</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="content">
+            <header>
+                <h1>Module 3 : Analyse de données avancée pour le reporting</h1>
+            </header>
+            <section>
+            <p>Introduire les concepts d'analyse de données avancée adaptés au reporting, 
+			Comprendre et implémenter des algorithmes tels que K-Means, PCA, ou régressions pour extraire des insights pertinents.</p>
+            <ol>
+                <li>Régression linéaire pour le reporting</li>
+				<p>La régression linéaire est un modèle statistique qui prédit une variable continue en fonction 
+				d’une ou plusieurs variables indépendantes.</p>
+				<p>Applications pratiques : 
+				<ul>
+					<li>Prévision des ventes,</li> 
+					<li>analyse des performances marketing,</li> 
+					<li>identification de relations entre des variables.</li></ul></p> 
+				<pre>
+					<code class="language-python">
+		from sklearn.linear_model import LinearRegression
+		import pandas as pd
+		import seaborn as sns
+		import matplotlib.pyplot as plt
+
+		# Exemple de données simulées
+		data = {'Budget_Marketing': [10, 15, 20, 25, 30],
+				'Ventes': [100, 150, 200, 250, 300]}
+		df = pd.DataFrame(data)
+
+		# Modèle de régression linéaire
+		model = LinearRegression()
+		model.fit(df[['Budget_Marketing']], df['Ventes'])
+
+		# Relation entre budget et ventes
+		sns.regplot(x="Budget_Marketing", y="Ventes", data=df)
+		plt.title("Relation entre Budget Marketing et Ventes")
+		plt.show()
+		
+		# Prédictions
+		new_budget = pd.DataFrame({'Budget_Marketing': [35]})
+		predictions = model.predict(new_budget)
+
+		print("Prévision pour un budget marketing de 35 :", predictions[0])
+					</code>
+				</pre>
+				<img src="images/regression.PNG" alt="Illustration regression" width="500">
+                <li>Clustering avec K-Means</li>
+				<p>Le clustering est une technique qui regroupe des données similaires dans des "clusters". 
+				L’algorithme K-Means divise les données en K groupes en minimisant la distance entre les points 
+				d’un cluster et son centre.</p>
+				<p>Applications pratiques :
+				<ul>
+					<li>segmentation des clients (marketing),</li> 
+					<li>groupement de produits similaires pour optimiser l’inventaire,</li> 
+					<li>identification des zones géographiques pour la livraison.</li></ul></p>
+				<pre>
+					<code class="language-python">
+		import pandas as pd
+		import matplotlib.pyplot as plt
+		from sklearn.cluster import KMeans
+		
+
+		# Exemple de données
+		data = {'Revenu': [15, 20, 28, 30, 35, 40, 50],
+				'Dépenses': [200, 210, 250, 260, 300, 320, 400]}
+		df = pd.DataFrame(data)
+
+		# Application de K-Means
+		kmeans = KMeans(n_clusters=2, random_state=42)
+		df['Cluster'] = kmeans.fit_predict(df[['Revenu', 'Dépenses']])
+
+		# Visualisation
+		plt.scatter(df['Revenu'], df['Dépenses'], c=df['Cluster'], cmap='viridis')
+		plt.xlabel('Revenu')
+		plt.ylabel('Dépenses')
+		plt.title('Segmentation des clients')
+		plt.show()
+					</code>
+				</pre>
+				<img src="images/kmeans.PNG" alt="Illustration clustering" width="500">
+				<img src="images/kmeans2.PNG" alt="Illustration clustering à 3" width="500">
+                <li>Réduction de dimensions avec ACP(analyse en composant principal) ou PCA (Principal Component Analysis)</li>
+				<p>PCA est une méthode de réduction de dimensions qui transforme des données complexes en un espace plus simple tout en préservant leur variance. 
+				Elle est utile pour visualiser des données ou réduire le bruit.</p>
+				<p>Applications pratiques :
+				<ul>
+					<li>visualisation des données à haute dimension,</li> 
+					<li>simplification des modèles prédictifs,</li> 
+					<li>détection d’anomalies.</li></ul></p>
+				<pre>
+					<code class="language-python">
+		import pandas as pd
+		import matplotlib.pyplot as plt
+		from sklearn.decomposition import PCA
+		
+
+		# Exemple de données simulées
+		data = {'Feature_1': [2, 4, 6, 8, 10],
+				'Feature_2': [1, 3, 5, 7, 9],
+				'Feature_3': [10, 20, 30, 40, 50]}
+		df = pd.DataFrame(data)
+
+		# Application de PCA pour réduire à 2 dimensions
+		pca = PCA(n_components=2)
+		reduced_data = pca.fit_transform(df)
+
+		print("Données réduites :")
+		print(reduced_data)
+
+					</code>
+				</pre>
+				<img src="images/pca.PNG" alt="Illustration reduction dimensions acp" width="500">
+            </ol>
+        </section>
+        </main>
+    </div>
+    <footer>
+        <p>© 2024 Mon Cours. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
